@@ -1,0 +1,68 @@
+﻿<Window x:Name="mainWindow" x:Class="Calculator_Assessment.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator_Assessment"
+        mc:Ignorable="d"
+        Title="Calculator" Height="320" Width="400" ResizeMode="CanMinimize" KeyDown="keyDown" WindowStartupLocation="CenterOwner" Closing="mainWindow_Closing">
+
+    <Grid Width="384" Height="271">
+        <TextBox x:Name="mainNumber" Height="45" Margin="5,10,10,0" VerticalAlignment="Top" TextAlignment="Right" FontSize="32" TextChanged="mainNumber_TextChanged" FontFamily="Cambria Math" VerticalContentAlignment="Center" Text="0" BorderThickness="0" VerticalScrollBarVisibility="Disabled" IsReadOnly="True" MaxLines="1" Cursor="Arrow"/>
+        <Grid x:Name="CalcArea" Margin="10,60,9,0" Width="362" Height="206" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="2"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="2"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="2"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="factorial" Content="n!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="factorial_Click" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="Factorial [F1]"/>
+            <Button x:Name="oneOverX" Content="¹/ₓ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="oneOverX_Click" Grid.Column="2" Padding="1" BorderThickness="1" FontSize="24" Cursor="Hand" ToolTip="Reciprocal [F5]"/>
+            <Button x:Name="seven" Content="7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="seven_Click" Grid.Column="4" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="7"/>
+            <Button x:Name="eight" Content="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="eight_Click" Grid.Column="6" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="8"/>
+            <Button x:Name="nine" Content="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="nine_Click" Grid.Column="8" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="9"/>
+            <Button x:Name="divide" Content="÷" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="divide_Click" Grid.Column="10" Padding="1" BorderThickness="1" FontSize="20" Grid.Row="6" Cursor="Hand" ToolTip="Divide [ / ]"/>
+            <Button x:Name="backspace" Content="⌫" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="backspace_Click" Grid.Column="12" Padding="1" BorderThickness="1" FontSize="14" Grid.Row="2" Cursor="Hand" ToolTip="Backspace"/>
+            <Button x:Name="add" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="add_Click" Grid.Column="10" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="Add [ + ]"/>
+            <Button x:Name="multiply" Content="×" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="multiply_Click" Grid.Column="10" Grid.Row="4" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="Multiply [ * ]"/>
+            <Button x:Name="six" Content="6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="six_Click" Grid.Column="8" Grid.Row="2" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="6"/>
+            <Button x:Name="five" Content="5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="five_Click" Grid.Column="6" Grid.Row="2" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="5"/>
+            <Button x:Name="four" Content="4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="four_Click" Grid.Column="4" Grid.Row="2" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="4"/>
+            <Button x:Name="x2" Content="x²" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="x2_Click" Grid.Column="2" Grid.Row="2" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="Square [F6]"/>
+            <Button x:Name="xY" Content="xʸ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="xY_Click" Grid.Row="2" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="Power To [F2]"/>
+            <Button x:Name="eNumber" Content="eˣ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="eNumber_Click" Grid.Row="4" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="Power Of e [F3]"/>
+            <Button x:Name="sqrt" Content="√" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="sqrt_Click" Grid.Column="2" Grid.Row="4" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="Square Root [F7]"/>
+            <Button x:Name="one" Content="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="one_Click" Grid.Column="4" Grid.Row="4" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="1"/>
+            <Button x:Name="two" Content="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="two_Click" Grid.Column="6" Grid.Row="4" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="2"/>
+            <Button x:Name="three" Content="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="three_Click" Grid.Column="8" Grid.Row="4" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="3"/>
+            <Button x:Name="subtract" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Click="subtract_Click" FontFamily="Cambria Math" Grid.Column="10" Grid.Row="2" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="Subtract [ - ]"/>
+            <Button x:Name="equals" Content="=" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="102" Click="equals_Click" FontFamily="Cambria Math" Grid.Column="12" Grid.Row="4" Grid.RowSpan="3" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="Equals [ = ]"/>
+            <Button x:Name="negativeInvert" Content="±" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Grid.Column="4" Grid.Row="6" Padding="1" BorderThickness="1" Click="negativeInvert_Click" FontSize="20" Cursor="Hand" ToolTip="Negate [F9]"/>
+            <Button x:Name="decimalPoint" Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="decimalPoint_Click" Grid.Column="8" Grid.Row="6" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="Decimal"/>
+            <Button x:Name="zero" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="zero_Click" Grid.Column="6" Grid.Row="6" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="0"/>
+            <Button x:Name="clear" Content="C" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="clear_Click" Grid.Column="12" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="Clear [C]"/>
+            <Button x:Name="tenX" Content="10ˣ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="tenX_Click" Grid.Column="2" Grid.Row="6" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="Power Of 10 [F8]"/>
+            <Button x:Name="pi" Content="π" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Cambria Math" Click="pi_Click" Grid.Row="6" Padding="1" BorderThickness="1" FontSize="20" Cursor="Hand" ToolTip="Pi [F4]"/>
+        </Grid>
+        <TextBox x:Name="operatorIndicator" Margin="16,0,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" TextAlignment="Right" FontFamily="Cambria Math" Foreground="#FF444444" TextChanged="operatorIndicator_TextChanged" BorderBrush="{x:Null}" FontSize="14" IsReadOnly="True" BorderThickness="0" Cursor="Arrow"/>
+        <MediaElement x:Name="video" Source="meme.mp4" ToolTip="Rickrolled!" Cursor="None" UnloadedBehavior="Stop" Margin="-5,-16,-5,-17" ScrollViewer.VerticalScrollBarVisibility="Disabled" Volume="1" Stretch="UniformToFill" Position="0:0:0" LoadedBehavior="Stop" Visibility="Hidden"/>
+    </Grid>
+</Window>
